@@ -1,8 +1,13 @@
 {
   "scripts": {
     "git-init": "git init && git remote add origin https://github.com/VacantThinker/learn_javascript.git",
-    "push-master-branch": "git add . && git commit -m 'new' && git push origin master --force",
-    "first-push": "npm run git-init && npm run push-master-branch",
-    "second-push": "git add . && git commit -m 'new' && git push origin main --force"
+    "add-and-commit": "git add . && git commit -m 'new'",
+
+    "push-master": "git checkout master && git push origin master --force",
+    "push-main": "git checkout main && git push origin main --force",
+
+    "first-push": "npm run git-init && npm run add-and-commit",
+    "second-push": "npm run add-and-commit && npm run push-main"
+
   }
 }
