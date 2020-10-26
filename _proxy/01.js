@@ -20,21 +20,24 @@ const myObj = {
 const myProxy = new Proxy(myObj, {
 
   get(target, prop) {
-    console.log('\n----------------\n','prop\n',target, prop); // { name: 'tony', gender: 'male' }
+    console.log(`要查找的属性${prop}\n`, target, prop); // { name: 'tony', gender: 'male' }
     // console.log(prop); // age, name, gender
 
     if (prop in target) { // 如果该prop属性存在于target对象中
-      return target[prop]; // 返回该prop属性
+      let propVal = target[prop];
+      propVal = `已找到属性${prop}\t对应值${propVal}\n`;
+      return propVal; // 返回该prop属性
     } else {
-      return 'sorry, cant find it' // 否则, 告诉TA找不到该prop属性
+      return `对不起, 找不到属性${prop}\n`; // 否则, 告诉TA找不到该prop属性
     }
   }
 });
 
-console.log(myProxy.age); // 获取一个myObj所没有的属性age,
-console.log(myProxy.gender);
-console.log(myObj.name);
-console.log(myObj.age);
+console.log(myProxy.age); // 访问代理, age, 输出sorry, cant find it
+console.log(myProxy.gender); // 访问代理, gender, 输出gender属性对应的值
+
+console.log(myObj.name); // 访问原对象实例, name, 输出tony
+console.log(myObj.age); // 访问原对象实例, age, 输出undefined
 
 
 
