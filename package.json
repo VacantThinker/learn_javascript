@@ -1,13 +1,13 @@
 {
+  "name": "learn_javascript",
+  "homepage": "https://github.com/VacantThinker/learn_javascript.git",
   "scripts": {
-    "git-init": "git init && git remote add origin https://github.com/VacantThinker/learn_javascript.git",
-    "add-and-commit": "git add . && git commit -m 'new'",
-
-    "push-master": "git checkout master && git push origin master --force",
-    "push-main": "git checkout main && git push origin main --force",
-
-    "first-push": "npm run git-init && npm run add-and-commit",
-    "second-push": "npm run add-and-commit && npm run push-main"
-
+    "git-init": "git init && git remote add origin %npm_package_homepage%",
+    "git-add-and-commit": "git add . && git commit -m 'update'",
+    "git-branch-main": "git branch main",
+    "git-checkout-main": "git checkout main",
+    "first": "npm run git-init && npm run git-add-and-commit && npm run git-branch-main && npm run git-checkout-main",
+    "git-push-main": "git push origin main --force",
+    "second": "npm run git-add-and-commit && npm run git-push-main"
   }
 }
